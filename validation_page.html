@@ -1,0 +1,105 @@
+<!-- This will be after the login page, asking user to register details --> 
+<!-- Idea here is a simple validation page with a checkbox for sport. Ensure all fields are filled out and valid email address entered.
+Also will include same decoration properties and some pictures for visualisation -->
+
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+
+  <meta charset='UTF-8'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>  
+  <title>Welcome to your Player Profile, Conor</title>
+  <link rel='stylesheet' type='text/css' href='val.css'> 
+  <script src='https://d3js.org/d3.v5.min.js'></script> 
+</head>
+
+<body>
+
+<div id='header_2'>
+<a id='return' href = "login_page.html"> ← Login Page</a>
+<p id='register'> Please register your Details: <a id='progress' href = "profile_page.html"> Profile Page  →</a> </p>
+
+</div>
+<small>Once registered, please continue to Profile Page</small>
+<!-- image took from online -->
+<div>
+<img src="ireland.jpg" id='ireland' width="55%" height="40%" alt="SixNations" title="6Nations">
+</div>
+<fieldset id='Personal_details'>
+<legend> Personal Details:</legend>
+<!-- form outline took from lecture notes -->
+<form name="myForm" id='myForm' onsubmit="return validateForm()"  >
+	<label >First Name: *</label><br>		
+	<input type="text" name='name' required="" ><br>
+	
+	<label >Last name: *</label><br>
+	<input type="text" name='name'  required=""><br>	
+	
+	<label for="email">Email Address:*</label><br>
+	<input type="email"/><br>
+	
+	<label >Weight (in kg) *:</label><br>		
+	<input type="text" pattern="[0-9]+" placeholder='90' required="" /><br>
+	
+	<p>Date of Birth:
+		<input type="date"/>
+	</p>
+<small>* Required Field</small>
+</fieldset>
+
+<div>
+<!-- checkbox for picking sport took from lecture notes and adapted some images into form -->
+<fieldset class='Sport_details'>
+	<legend> Chosen Sport:</legend>
+	 <div><small><i>Pick at least 1</i></small></div>
+		<div id='Rugby'>
+		<input type="Checkbox" name="Rugby"/> Rugby 
+		<br>
+		<img src="irfu.png" width="200" height="200" alt="IRFU" title="IRFU"/></br>
+		</div>
+		
+		<div id='Soccer'>
+		<input  type="Checkbox" name="Soccer"/> Soccer
+		<br>
+		<img  src="soccer.png" width="200" alt="Soccer" title="Soccer"/></br>
+		</div>
+
+		<div id='GAA'>
+		<input type="Checkbox" name="GAA"/> GAA 
+		<br>
+		<img src="gaa.png" width="200" height="75"   alt="GAA" title="GAA"/></br>
+		</div>
+		
+		<div id='Swimming'>
+		<input  type="Checkbox" name="Swimming"/> Swimming
+		<br> 
+		<img src="swimming.png" width="200" height="75"  alt="Swimming" title="Swimming"/></br>
+		</div>
+	
+</fieldset>
+<!-- button to register your details -->
+<input id='button' onclick='details()' type="submit" value="Register">
+ 
+</form>
+</div>
+
+
+
+<!-- same footer as all pages -->
+
+<footer id='footer'>
+<p>
+<small >Copyright © 2022 Conor McCaffrey &amp; Team </small>
+<p ><a href="mailto:example@gmit.ie">Contact Us</a></p>
+</p>
+</footer>
+
+</body>
+
+<script>
+
+
+</script>
+</html>
+

@@ -1,0 +1,92 @@
+/* Very basic CSS coding, commented where necessary */
+html {
+  height: 100%;
+   overflow-x: hidden;
+}
+/* decoration for body tag
+Overflow attribute took from following source: https://www.w3schools.com/cssref/css3_pr_overflow-x.asp */ 
+body {
+  overflow-x: hidden;
+  font-family: Calibri ;
+  color: white;
+  background-color: #282828 ;
+}
+
+#Personal_details{
+	
+	width:15%;
+}
+
+#return{
+	float:left;
+}
+
+#progress {
+font-size:16px;
+float:right;
+}
+
+.Sport_details{
+	margin: 0;
+	width:30%;
+}
+
+/* positioning of picture elements */
+#Rugby{
+	float:left;
+}
+/* positioning of picture elements */
+#Soccer{
+	float:right;
+}
+/* positioning of picture elements */
+#Swimming{
+	float:right;
+}
+/* positioning of picture elements */
+#GAA{
+	float:left;
+	
+}
+/* positioning of picture elements */
+#ireland {
+	padding:3%;
+	float:right;
+	border: 5px solid #282828 ;
+}
+
+#button {
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #3a3a3a;
+  cursor: pointer;
+}
+/* header text */
+#second-heading{
+	text-align:center;
+}
+
+#register{
+margin-top:0;
+font-size:30px;
+}
+
+
+#header_2 {
+	background-color: #FEB20F;
+	color : white;	
+	text-align: center;
+}
+
+
+
+#footer{
+	background-color: #FEB20F;
+	color : white;	
+	text-align: center;
+}
+

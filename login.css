@@ -1,0 +1,176 @@
+html {
+  height: 100%;
+}
+/* settings for body of document
+text is white, display is grid with background colour oF #282828 */
+#login_initial {
+  height: 100%;
+  margin: 0;
+  font-family: Calibri ;
+  color: white;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: #282828 ;
+}
+
+
+
+/* text for floating banner */
+
+#second-heading{
+	text-align:center;
+}
+
+/* ensureing text input area is same colour as background and setting width */
+#smaller-screen {
+	background-color: #282828;
+	width = 30px;
+	
+}
+
+/* decoration for container with error message*/
+#login-error-msg-holder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+/* decoration for error message  */
+#login-error-msg {
+  width: 23%;
+  text-align: center;
+  margin: 0;
+  padding: 1px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #8a0000;
+  border: 1px solid #8a0000;
+  background-color: #e58f8f;
+  opacity: 0;
+}
+
+/* flex-start property took from https://developer.mozilla.org/en-US/docs/Web/CSS/align-self */ 
+#login-form {
+  align-self: flex-start;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.login-form-field::placeholder {
+  color: #3a3a3a;
+}
+
+/* decoration for username and password box */
+.login-form-field {
+  background-color: lightgrey;
+  border: none;
+  border-bottom: 1px solid #3a3a3a;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  outline: none;
+  padding: 0px 0px 5px 5px;
+}
+
+/* decoration for submit button box
+Cursor attribute took from https://www.w3schools.com/cssref/pr_class_cursor.asp */
+#login-form-submit {
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #3a3a3a;
+  cursor: pointer;
+  outline: none;
+}
+/* Header */
+#login_header {
+	width: 100%;
+	height: 100%;
+	background-color: #FEB20F;
+	color : white;	
+	text-align: center;
+}
+
+
+/* much the same as the header */
+footer {
+	width: 100%;
+	height: 100%;
+	background-color: #FEB20F;
+	color : white;	
+	text-align: center;
+}
+
+
+/* parameters for link at footer when not clicked */
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+/* parameters for link at footer when clicked */
+
+a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+} 
+
+
+
+
+
+
+
+/* Instructions for animation on login page reference 2  */
+
+#scroll-container {
+	height: 90%;
+	width: 950px;
+  
+}
+
+#scroll-text {
+  /* animation properties */
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  
+  -moz-animation: my-animation 25s linear infinite;
+  -webkit-animation: my-animation 25s linear infinite;
+  animation: my-animation 25s linear infinite;
+}
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+  from { -moz-transform: translateX(100%); }
+  to { -moz-transform: translateX(-100%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+  from { -webkit-transform: translateX(100%); }
+  to { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes my-animation {
+  from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+
+
+/* End of scrolling text animation */
+

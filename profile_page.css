@@ -1,0 +1,204 @@
+html {
+  height: 100%;
+   
+}
+
+body {
+  font-family: Calibri ;
+  color: white;
+  background-color: #282828 ;
+
+}
+
+
+#header_2 {
+	
+    margin:0px;
+	background-color: #FEB20F;
+	color : white;	
+	text-align: center;
+}
+/* Positioning elements */
+#return{
+	float:left;
+}
+
+
+/* decoration for button */
+#button {
+  width: 3%;
+  font-size:0.6em;
+  padding: 3px;
+  border-radius: 5px;
+  border-color:#767269;
+  color:  #000000;
+  font-weight: bold;
+  background-color: #767269;
+  cursor: pointer;
+  
+}
+
+/* decoration for button */
+#button2 {
+  width: 3%;
+  font-size:0.6em;
+  padding: 3px;
+  border-radius: 5px;
+  border-color:#AFAA9E;
+  color:  #000000;
+  font-weight: bold;
+  background-color: #AFAA9E;
+  cursor: pointer;
+  
+}
+/* decoration for button */
+#button3 {
+  width: 3%;
+  font-size:0.6em;
+  padding: 3px;
+  border-radius: 5px;
+  border-color:#FFFFFF;
+  color: #000000;
+  font-weight: bold;
+  background-color: #FFFFFF;
+  cursor: pointer;
+  
+}
+/* decoration for button.
+Dont want any margin at top */
+#button4 {
+  width: 3%;
+  font-size:0.6em;
+  padding: 3px;
+  border-radius: 5px;
+  border-color:#FFFFFF;
+  color: #000000;
+  font-weight: bold;
+  cursor: pointer;
+  
+}
+
+#results {
+	width:20%;
+	float:left;
+}
+
+#graph {
+	float:left;
+	border: 1px solid #282828 
+	
+}
+#graph2 {
+	float:right;
+	border: 1px solid #282828 ;
+	
+}
+#chartBorder{
+	
+	float:left;
+	border:1px solid #282828 ;
+	padding:3px;
+
+}
+#chartBorder2{
+	
+	float:left;
+	border:1px solid #282828 ;
+	padding:3px;
+
+}
+
+#register{
+margin-top:0;
+font-size:20px;
+float:center;
+}
+
+
+
+#result_button {
+
+  font-size:0.6em;
+  padding: 3px;
+  border-radius: 5px;
+  border-color:#FFFFFF;
+  color: #000000;
+  font-weight: bold;
+  cursor: pointer;
+  
+}
+
+#button5 {
+
+  font-size:0.6em;
+  padding: 3px;
+  border-radius: 5px;
+  border-color:#FFFFFF;
+  color: #000000;
+  font-weight: bold;
+  cursor: pointer;
+  
+}
+/* setting different font and colour to highlight difference  */
+
+#number {
+	color:lightblue;
+	font-family: Times New Roman;
+}
+
+
+#footer{
+	margin:5px;
+	background-color: #FEB20F;
+	color : white;	
+	text-align: center;
+}
+
+#chart_div {
+	float:right;
+	width:70%;
+}
+
+#chart_div2 {
+	float:center;
+	width:70%;
+}
+
+#share{
+	clear:left;
+}
+
+#speed {
+	float:left;
+}
+/* positioning of videos on tips page */
+#strength{
+	float:left;
+}
+/* positioning of videos on tips page */
+
+#endurance1{
+	float:left;
+}
+/* positioning of videos on tips page */
+
+#endurance1{
+	float:right;
+}
+/* positioning of links in header */
+
+#register{
+margin-top:0;
+font-size:20px;
+}
+/* positioning of links in header */
+
+#progress {
+font-size:15px;
+float:right;
+}
+/* positioning of videos on tips page */
+
+#endurance {
+	clear:left;
+}

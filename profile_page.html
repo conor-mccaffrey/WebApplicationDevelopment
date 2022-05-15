@@ -1,0 +1,450 @@
+<!-- Main thrust of project animation. Overview of player/team performance with bar chart and pie/donut chart displaying distance covered and levels of exertion in 
+addition to results in game.
+Reference 1 : https://discuss.codecademy.com/t/changing-background-color-with-class/385183 
+Reference 2: https://www.geeksforgeeks.org/d3-js-pie-function/ -->
+
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+
+  <meta charset='UTF-8'/> 
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>  
+  <title>Welcome to your Player Profile, Conor</title>
+  <link rel='stylesheet' type='text/css' href='profile_page.css'>
+  <script src="https://d3js.org/d3.v7.min.js"></script> 
+  
+  	<style>
+    /*Select all page for formatting background colour*/
+	* {	box-sizing: border-box;}
+
+    /* Change size while hover over bpieChart segment*/
+    path:hover {
+        opacity: 0.8;
+        transform: scale(1.5);
+        z-index: 3;        
+        }    
+
+	</style>
+
+</head>
+
+<body id='bdy'>
+
+<div id='header_2'>
+<a id='return' href = "validation_page.html"> ← Details Page</a> <a id='progress' href = "tips.html">   Tips→</a> </p>
+<br>
+<p id='register'> Player Profile</p>
+</div>
+
+<!-- Buttons on top of page to alter background colour -->
+<div>
+<small><i>View page in:</i></small>
+<button id='button' onclick='Bdark()'> Dark Mode </button>
+<button id='button2' onclick='Bneutral()'> Neutral Mode </button>
+<button id='button3' onclick='Blight()'> Light Mode </button>
+<button id='button4' onclick='Bnormal()'> Reset Original </button>
+
+</div>
+<br>
+
+<!-- same as seen in previous pages, this time we have an unordered list of results from games --> 
+<div>
+<fieldset id='results'>
+<legend>Results</legend>
+<ul>
+<li class='win'>Game 1 v Ulster (43-10)</li> 
+<br>
+<li class='win'>Game 2 v Munster (12-9)</li> 
+<br>
+<li class='win'>Game 3 v Connacht (18-9)</li> 
+<br>
+<li class='loss'>Game 4 v Leinster (21-29)</li> 
+<br>
+<li class='win'>Game 5 v Zebre (30-10)</li>
+<br>
+<li class='loss' >Game 6 v Saracens (9-12)</li> 
+<br>
+<li class='win'>Game 7 v Exeter (12-9)</li> 
+<br>
+<li class='draw'>Game 8 v Bristol (9-9) </li> 
+<br>
+<li class='win'>Game 9 v Bath (17-8) </li> 
+
+<br>
+
+<!-- four buttons, each one willl call a different function to highlight certain results -->
+<button id='result_button' onclick='win()'> Display Wins </button>
+<button id='result_button' onclick='loss()'> Display Losses </button>
+<button id='result_button' onclick='draw()'> Display Draws </button>
+<br>
+<br>
+<div>
+<button id='button5' onclick='result_number()'> Results in numbers </button> 
+ 
+<p id='number'></p>
+</div>
+</ul>
+</fieldset>
+</div>
+
+<!-- fieldset in order to separate from pie/donut chart. This one is for distance with an animation and transiton when loading data --> 
+<fieldset id='graph'>
+<legend> KM Covered Graph Data</legend>
+<div id='chartBorder'>
+<div id = 'chart_div'>
+<p>Please Select Chart Size
+<select id='chartHeight'>
+		<option value='200'>200 pixels</option>
+		<option value = '400'>400 pixels</option>
+		<option value ='500'>500 pixels</option>
+</select></p>
+	<p>Select Chart Colour:  <input type='color' id='colorPicker'></p>
+	
+	<button onclick ='drawChart()' id='result_button'> Draw Chart</button>
+</div>	
+<div id='myDiv'></div>
+</div>
+
+
+</fieldset>
+
+
+
+<!-- fieldset in order to separate from bar chart. This one is for level of exertion with an animation when loading data. Option to selectanimation for data --> 
+
+<fieldset id='graph2'>
+<legend>Exertion Levels per Game</legend>
+<div id='chartBorder2'>
+<div id = 'chart_div2'>
+<p>Please Select Chart Size
+<select id='radius'>
+		<option value='80'>80 pixels</option>
+		<option value = '100'>100 pixels</option>
+		
+</select>
+</p>
+
+	<p>Select Chart Colour:</p>    
+	<select id="theme"> 
+		<option value = "d3.schemeCategory10[i]">Category10</option>
+		<option value = "d3.schemeTableau10[i]">Tableau10</option>
+		<option value = "d3.schemeDark2[i]">Dark</option>
+	</select>
+    <p>Select Chart Type:</p>
+    <select id="type"> 
+		<option value = "150">Pie</option>
+		<option value = "2">Donut</option>
+	</select>
+    <!--Option to select which animation style of labels-->
+   <p> Select Animation: </p>
+    <select id="animation"> 
+		<option value = "d3.easeBounceOut">Bounce</option>
+		<option value = "d3.easeElastic">Elastic</option>
+        <option value = "d3.easeLinear">Linear</option>
+	</select>
+	<button onclick ='drawChart2(data1)' id='result_button'> Draw Chart</button>
+</div>
+
+<div id='myDiv2'>
+</div>
+<!-- little fun here, images are links to 'share' data on social media platforms --> 
+</fieldset>
+
+<div id='share'>
+<br>
+<small><i>Share your results on:</i></small>
+<br>
+     <a href="https://www.twitter.com/" target='_blank'>
+         <img alt="Twitter" src="twitter.jpg" width=100 height=60>
+      </a>
+	 <a href="https://www.linkedIn.com/" target='_blank'>
+         <img alt="LinkedIn" src="linkedin.png" width=80 height=60>
+      </a>
+
+</div>
+
+
+<!-- same footer as usual -->
+
+<div>
+<footer id='footer'>
+<p>
+<small>Copyright © 2022 Conor McCaffrey &amp; Team </small>
+<p ><a href="mailto:example@gmit.ie">Contact Us</a></p>
+</p>
+</footer>
+</div>
+</body>
+</html>
+
+<script>
+<!-- adapted from reference 1 --> 
+function loss() {  // took from https://discuss.codecademy.com/t/changing-background-color-with-class/385183
+	var loss = document.getElementsByClassName('loss'); // get all elements
+	for(var i = 0; i < loss.length; i++){
+		loss[i].style.backgroundColor = "red";
+	}
+}
+function win() {  // took from https://discuss.codecademy.com/t/changing-background-color-with-class/385183
+	var win = document.getElementsByClassName('win'); // get all elements
+	for(var i = 0; i < win.length; i++){
+		win[i].style.backgroundColor = "green";
+	}
+}
+
+function draw() {
+	var draw = document.getElementsByClassName('draw'); // get all elements (https://www.w3schools.com/jsref/met_document_getelementsbyclassname.asp)
+	for(var i = 0; i < draw.length; i++){
+		draw[i].style.backgroundColor = "grey";
+	}
+}
+// End of reference 1
+
+/* simple getElementById's in order to set background colour depending on selection */
+function Bdark(){
+	document.getElementById('bdy').style.background = 'black';
+}
+/* simple getElementById's in order to set background colour depending on selection */
+function Blight(){
+	document.getElementById('bdy').style.background = '#6BD699';
+}
+/* simple getElementById's in order to set background colour depending on selection */
+function Bneutral(){
+	document.getElementById('bdy').style.background = '#D6B96B';
+}
+/* simple getElementById's in order to set background colour depending on selection */
+function Bnormal(){
+	document.getElementById('bdy').style.background = '#282828';
+}
+
+/* simple getElementById's in order to display results in numbers when button is clicked and fxn called */
+function result_number(){
+	document.getElementById('number').innerHTML = '<b>Wins:</b> 6 <br> <b>Losses:</b> 2 <br> <b>Draws:</b> 1  ';
+
+}
+
+
+/// Chart Data (heavily adapted form lecture notes)
+function drawChart() {
+	// Load Data
+	d3.csv('km.csv').then(function(data){
+		console.log(data);
+		
+	// Values for bar chart
+	var height = document.getElementById('chartHeight').value;  // get the value from the drop down list
+	var width = 490;
+	var dataCount = data.length; // this is a method that counts the number of instances in our data file 
+	var gap = 5;
+	var chartColor = document.getElementById('colorPicker').value;
+
+		// Convert to numbers
+		data.forEach(function(d){
+			d.KM = Number(d.KM);
+		})
+		
+		// Create scale for X 
+		var xScale = d3.scaleBand()
+			.domain(data.map(function(d){
+				return d.Game;
+			}))
+			.range([0,width]);
+		
+		// Create x-axis
+		var xAxis = d3.axisBottom()
+			.scale(xScale);
+		
+		// Create scale for Y 
+		var yScale = d3.scaleLinear()
+			.domain([0,d3.max(data,function(d){
+				return d.KM +1;
+			})])
+			.range([height,5]); // 5 is second element to ensure graph is corect
+			
+		//Create a Y-axis
+		var yAxis = d3.axisLeft()
+			.scale(yScale);
+		
+		// Delete elements inside div before creating any SVG container (stops repeating) 
+		d3.select('#myDiv').selectAll('*').remove();
+		
+		// Create an SVG Container
+		let svgContainer = d3.select('#myDiv').append('svg')
+			.attr('width',600)
+			.attr('height',550);
+			
+			
+		// Create a rectangle	
+		let myRectangle = svgContainer.selectAll('rect')
+			.data(data);
+			
+		// Add attributes for rectanlge	
+		myRectangle.enter()
+			.append('rect')
+			// start of transition
+				
+				.attr('x',function(d,i){return 50 + (i*10);})
+				.attr('y', 0) // setting this to 0 to account for different graph sizes
+				.attr('width',40)
+				
+			// Transition is 2 secs
+				.transition()
+				.duration(2000)
+				
+			// end of Transition
+				.attr('x',function(d,i){
+					return 50 + (i*(width/dataCount));  // this calculation is entire width of the graph divided by number of bars
+				})
+				.attr('y',function(d){
+						return yScale(d.KM); 
+					})
+				.attr('width',(width/dataCount - gap))
+				.attr('height',function(d){
+					return height - yScale(d.KM); // took from lecture notes
+				})
+				.attr('fill', chartColor);
+
+	// Put y-axis details after bars have been created
+	svgContainer.append('g')
+		.attr('transform','translate(45,0)')
+		.call(yAxis);
+		
+	// Put x-axis details after bars have been created
+	svgContainer.append('g')
+		.attr('transform','translate(50,' + height + ')')   //need to use concatenation for variables and strings
+		.call(xAxis)
+		.selectAll('text')
+			.attr('transform','rotate(60)')
+			.attr('text-anchor', 'start')
+			.attr('x','9')
+			.attr('y','3');
+	    
+	svgContainer.append("text")
+       .attr("transform", "translate(100,0)")
+       .attr("x", 10)
+       .attr("y", 15)
+       .attr("font-size", "15px")
+       .text("KM Covered Per Game") // appending out graph title
+	    .attr('fill', 'white');   // appending out graph title
+		
+	})
+	}
+
+
+
+// Pie/Donut Chart (reference 2)
+
+        //Initial width and height
+        var width = 400
+        var height = 250
+
+        //Two data arrays to plot and labels
+        var data1 = [7,4,7,6,5,6,9,8,6];
+        var data2 = ['Game 1','Game 2','Game 3','Game 4','Game 5','Game 6','Game 7','Game 8','Game 9'];
+        
+
+    //Run the function to draw the chart
+function drawChart2(data){
+        
+        //Variables from the menu options stored for later use
+        var radius = document.getElementById("radius").value;
+        var theme = document.getElementById("theme").value;
+        var type = document.getElementById("type").value;
+        var animation = document.getElementById("animation").value;
+
+        //Same idea as above, stops repeating
+        d3.select("#myDiv2").selectAll("*").remove();
+  
+        // Selecting SVG using d3.select() as per lecture notes
+        var svgContainer = d3.select("#myDiv2").append("svg")
+            //Set the container larger than the size of piechart selected 
+                .attr("width", radius*4)
+                .attr("height", radius*4)
+            .append("g")
+            //Set the mid point to half the container size
+                .attr("transform", "translate(" + radius*2 + "," + radius*2 + ")");
+  
+        // Grouping different arcs. This is all done as per Reference 2
+        var myPie = svgContainer.selectAll("arc")
+                    .data(d3.pie()(data1))
+                    .enter()
+                    .append("g");
+
+  
+        // Appending path for arcs        
+        myPie.append("path")
+            //Start of Transitions
+            .attr("fill","orange")
+
+            //Set to draw out from the middle
+            .attr("d", d3.arc()
+               .innerRadius(radius-radius)
+               .outerRadius(radius-radius))            
+			//start of our transition of 0.5 secs
+            .transition()
+            .duration(500)
+            //Add an effect of different slices loading at different times
+            .delay(function(data,i){
+               return i * 200
+            })
+            .ease(d3.easeBounce)  // setting this although we can alter the labels animation
+
+            //End of Transition
+            .attr("d", d3.arc()
+            //Set higher inner radius if donut chart is selected
+                .innerRadius(radius/type)
+                .outerRadius(radius))
+            .attr("fill", (data, i)=>{
+            let value=data.data1;
+            //Selected color palette
+                return eval(theme);
+
+            })
+           // Adding text to each arc
+           myPie.append("text")
+            //Start Transition with a delay and transition time of 1 sec
+            .transition()
+            .duration(1000)
+            .delay(1000)
+            //Selected animation style
+            .ease(eval(animation))
+            //End x1from the radius
+            .attr("transform",(d)=>{ 
+                return "translate("+ 
+                d3.arc()
+                    .innerRadius(0)
+                    .outerRadius(radius*1.3).centroid(d) + ")"; 
+            })
+            //Centre align text
+            .attr("text-anchor","middle")
+            //Displays array values
+            .text(function(d,i){
+               return d.data; 
+               });
+
+            //Add labels
+            myPie.append("text")
+                //Start Transition
+                .transition()
+                .duration(2000)
+                .delay(3000)
+                //Selected animation
+                .ease(eval(animation))                              
+                .attr("transform",(d)=>{ 
+                    return "translate("+ 
+                    d3.arc()
+                        .innerRadius(0)
+                        //Set ending point outside the chart
+                        .outerRadius(radius*2.5).centroid(d) + ")"; 
+                })
+                .attr("text-anchor","middle")
+                .text(function(d,i){return data2[i]});
+
+    }
+
+	<!-- end fo ref 2 -->
+</script>
+
+
+
+
